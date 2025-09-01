@@ -3,16 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:MobileApplication/main.dart';
 
 void main() {
-  testWidgets('App generation message displayed', (WidgetTester tester) async {
+  testWidgets('Login screen renders', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-
-    expect(find.text('MobileApplication App is being generated...'), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-  });
-
-  testWidgets('App bar has correct title', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    expect(find.text('MobileApplication'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.text('Login'), findsOneWidget);
+    expect(find.text('Email'), findsOneWidget);
+    expect(find.text('Password'), findsOneWidget);
   });
 }
